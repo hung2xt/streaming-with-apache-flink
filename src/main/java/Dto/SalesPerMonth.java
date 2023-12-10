@@ -10,3 +10,6 @@ public class SalesPerMonth {
     private int month;
     private double totalSales;
 }
+
+
+
