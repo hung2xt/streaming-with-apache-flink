@@ -103,7 +103,7 @@ bash StopKafka.sh
 ```
 ## Notes
 
-- Ensure the MySQL JDBC driver (`/mysql-connector-java-8.0.29.jar`) is available in your lib directory.
+- Ensure the MySQL JDBC driver (`mysql-connector-java-8.0.29.jar`) is available in your lib directory.
 - Adjust the Kafka and MySQL connection properties in the script to match your setup.
 
 
