@@ -12,6 +12,12 @@ This tutorial demonstrates how to read data from a Kafka topic and write it to a
 
 ## Setup
 
+### Install Python libaries
+
+```bash
+python3 -m install -r requirements.txt
+```
+
 ### Kafka
 
 1. **Start Kafka Broker**: Ensure your Kafka broker is running.
