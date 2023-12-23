@@ -51,7 +51,7 @@ def read_from_kafka_write_to_mysql(env):
         .build()
 
     kafka_consumer = FlinkKafkaConsumer(
-        topics='financial_transactions',
+        topics='transactions',
         deserialization_schema=deserialization_schema,
         properties={'bootstrap.servers': 'localhost:9092'}
     )
