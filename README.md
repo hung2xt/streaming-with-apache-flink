@@ -11,7 +11,7 @@ This a forked repository that contains examples and tutorials for streaming data
 Before you start, ensure you have the following installed:
 - Apache Flink
 - Apache Kafka (for Kafka examples)
-- MySQL (for sink examples)
+- PostgreSQL, Elasticsearch, and MySQL (for sink examples)
 - Python 3.x (for PyFlink examples)
 
 ## Getting Started
@@ -30,7 +30,6 @@ To get started with these examples:
 
 ## Repository Structure
 
-- `flink-examples/`: Basic examples to get started with Flink.
 - `src/main/java`: Examples integrating Flink with Kafka and Java.
 - `python-examples/`: Demonstrations of using Pyflink to write to MySQL.
 - Additional directories and examples as per your repository's content.
