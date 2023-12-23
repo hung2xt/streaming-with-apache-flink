@@ -6,5 +6,8 @@ docker inspect --format='{{json .State.Health}}' kb-container
 HEALTHCHECK --interval=30s --timeout=30s --retries=3 CMD curl -f http://localhost/ || exit 1
 
 wget https://dlcdn.apache.org/flink/flink-1.18.0/flink-1.18.0-bin-scala_2.12.tgz
+wget wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka/1.15.0/flink-sql-connector-kafka-1.15.0.jar
+wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-jdbc/3.1.1-1.17/flink-connector-jdbc-3.1.1-1.17.jar 
+wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar
 
 
