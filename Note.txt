@@ -11,4 +11,6 @@ wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-jdbc/3.1.1-
 wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar
 
 
+pip install apache-flink --default-timeout=100
+
 
