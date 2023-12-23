@@ -31,8 +31,8 @@ To get started with these examples:
 ## Repository Structure
 
 - `flink-examples/`: Basic examples to get started with Flink.
-- `kafka-integration/`: Examples integrating Flink with Kafka.
-- `mysql-sink-examples/`: Demonstrations of using Flink to write to MySQL.
+- `src/main/java`: Examples integrating Flink with Kafka and Java.
+- `python-examples/`: Demonstrations of using Pyflink to write to MySQL.
 - Additional directories and examples as per your repository's content.
 
 ## Running the Examples
