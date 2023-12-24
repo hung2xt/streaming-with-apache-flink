@@ -38,6 +38,7 @@ import org.apache.flink.elasticsearch7.shaded.org.elasticsearch.common.xcontent.
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.connector.jdbc.JdbcSink;
+import org.apache.flink.connector.elasticsearch.sink.FlushBackoffType;
 
 import java.sql.Date;
 
@@ -263,17 +264,25 @@ public class DataStreamJob {
 
         transactionStream.sinkTo(
                 new Elasticsearch7SinkBuilder<Transaction>()
-                        .setHosts(new HttpHost("localhost", 9200, "http"))
+                        .setHosts(new HttpHost("127.0.0.1", 9200, "http"))
                         .setEmitter((transaction, runtimeContext, requestIndexer) -> {
 
-                            String json = convertTransactionToJson(transaction);
+                            String json = convertTransactionToJson(transaction);   
+                            String dynamicIndexName = "transaction_fs"; //+ transaction.getSanitizedProductCategory();
 
                             IndexRequest indexRequest = Requests.indexRequest()
-                                    .index("transactions")
+                                    .index(dynamicIndexName)
                                     .id(transaction.getTransactionId())
                                     .source(json, XContentType.JSON);
                             requestIndexer.add(indexRequest);
                         })
+                        .setBulkFlushBackoffStrategy(FlushBackoffType.EXPONENTIAL, 5, 1000)
+                        .setBulkFlushMaxActions(1)
+                        .setBulkFlushMaxSizeMb(2)
+                        .setBulkFlushInterval(1000)
+                        .setConnectionRequestTimeout(30000)
+                        .setConnectionTimeout(31000)
+                        .setSocketTimeout(32000)
                         .build()
         ).name("Elasticsearch Sink");
 

@@ -18,4 +18,12 @@ public class Transaction {
     private String customerId;
     private Timestamp transactionDate;
     private String paymentMethod;
+    
+    public String getSanitizedProductCategory() {
+        if (productCategory == null) {
+            return "unknown_category"; // Default category name
+        }
+        // Replace spaces with underscores and convert to lower case
+        return productCategory.replaceAll("\\s+", "_").toLowerCase();
+    }
 }
