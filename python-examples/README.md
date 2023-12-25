@@ -89,6 +89,7 @@ The MySQL sink writes the incoming records to the `transactions` table in the My
 wget wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka/1.15.0/flink-sql-connector-kafka-1.15.0.jar
 wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-jdbc/3.1.1-1.17/flink-connector-jdbc-3.1.1-1.17.jar 
 wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar
+wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-elasticsearch7/3.0.1-1.17/flink-sql-connector-elasticsearch7-3.0.1-1.17.jar
 ```
 
 ### Running the Script
@@ -98,9 +99,10 @@ wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-conn
 
    ```bash
    python KafkaSinkMySQL.py
+   python KafkaSinkElasticsearch.py
    ```
 
-   Replace `KafkaSinkMySQL.py` with the name of your Python script.
+   Replace `KafkaSinkMySQL.py`, `KafkaSinkElasticsearch.py` with the name of your Python script.
 
 ### Clean up
 
