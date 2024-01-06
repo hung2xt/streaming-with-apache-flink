@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  hadoop:
+    image: crs4/hadoop:3.2.1
+    container_name: hadoop
+    ports:
+      - "50070:50070" # NameNode web UI
+    volumes:
+      - ./data/hadoop:/data
+
+  flink:
+    image: flink:1.18.0-scala_2.12
+    container_name: flink
+    ports:
+      - "8081:8081" # Flink web UI
+    depends_on:
+      - hadoop
+    environment:
+      - HADOOP_CLASSPATH=/etc/hadoop
+    command: ["jobmanager"]
+
+  flink-taskmanager:
+    image: flink:1.18.0-scala_2.12
+    depends_on:
+      - flink
+    command: ["taskmanager"]
+    scale: 2

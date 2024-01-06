@@ -14,5 +14,9 @@ wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-conn
 
 
 pip install apache-flink --default-timeout=100
+docker logs hadoop
+
+find / -name core-site.xml 2>/dev/null
+
 
 
